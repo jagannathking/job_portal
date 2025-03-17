@@ -16,13 +16,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const corsOptions = {
-  // origin: [process.env.FONTEND_IND_POINT],
-  origin: process.env.FONTEND_IND_POINT || "*",
-  credentials: true,
-};
+// const corsOptions = {
+//   // origin: [process.env.FONTEND_IND_POINT],
+//   origin: process.env.FONTEND_IND_POINT || "*",
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// console.log("cors error",process.env.FONTEND_IND_POINT)
+// app.use(cors(corsOptions));
+
+app.use(cors());
 
 
 const PORT = process.env.PORT || 5001;
