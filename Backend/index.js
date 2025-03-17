@@ -8,7 +8,7 @@ import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
 
-dotenv.config({});
+dotenv.config();
 const app = express();
 
 //middleware
@@ -16,15 +16,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const corsOptions = {
-//   // origin: [process.env.FONTEND_IND_POINT],
-//   origin: process.env.FONTEND_IND_POINT || "*",
-//   credentials: true,
-// };
+const corsOptions = {
+  // origin: [process.env.FONTEND_IND_POINT],
+  origin: process.env.FONTEND_IND_POINT || "*",
+  credentials: true,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-app.use(cors());
+
 const PORT = process.env.PORT || 5001;
 
  
