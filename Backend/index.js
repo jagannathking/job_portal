@@ -17,7 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: [process.env.FONTEND_IND_POINT],
+  // origin: [process.env.FONTEND_IND_POINT],
+  origin: process.env.FONTEND_IND_POINT || "*",
   credentials: true,
 };
 
