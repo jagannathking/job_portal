@@ -18,16 +18,14 @@ app.use(cookieParser());
 
 
 // // Allow requests only from your frontend domain
-// const corsOptions = {
-//     origin: "https://job-portal-tfzw.vercel.app", 
-//     credentials: true,
-//     methods: "GET,POST,PUT,DELETE",
-//     allowedHeaders: "Content-Type,Authorization",
-//   };
-  
-//   app.use(cors(corsOptions));
+const corsOptions = {
+  origin: "https://job-portal-eight-henna.vercel.app", 
+  credentials: true,
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+};
+app.use(cors(corsOptions));
 
-  app.use(cors({ origin: "*" }));
 
 //api's
 
