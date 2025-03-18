@@ -18,21 +18,13 @@ app.use(cookieParser());
 
 
 // // Allow requests only from your frontend domain
-// const corsOptions = {
-//   origin: "https://job-portal-eight-henna.vercel.app", 
-//   credentials: true,
-//   methods: "GET,POST,PUT,DELETE",
-//   allowedHeaders: "Content-Type,Authorization",
-// };
-// app.use(cors(corsOptions));
-
-// Configure CORS
-app.use(
-  cors({
-    origin: "https://job-portal-eight-henna.vercel.app", 
-    credentials: true, // Allow cookies to be sent
-  })
-);
+const corsOptions = {
+  origin: "https://job-portal-eight-henna.vercel.app",
+  credentials: true,
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+};
+app.use(cors(corsOptions));
 
 //api's
 
@@ -44,7 +36,7 @@ app.use("/api/application", applicationRoute);
 
 // Test route
 app.get("/", (req, res) => {
-    res.status(200).json({message:"Healthy"})
+  res.status(200).json({ message: "Healthy" })
 })
 
 export default app
