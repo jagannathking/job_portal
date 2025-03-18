@@ -17,18 +17,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-// // Allow requests only from your frontend domain
-// const corsOptions = {
-//     origin: "https://job-portal-tfzw.vercel.app", 
-//     credentials: true,
-//     methods: "GET,POST,PUT,DELETE",
-//     allowedHeaders: "Content-Type,Authorization",
-//   };
+const allowedOrigins = [
+    "https://job-portal-tfzw-jagannaths-projects-36d87af2.vercel.app",
+    "https://job-portal-tfzw-git-main-jagannaths-projects-36d87af2.vercel.app",
+  ];
   
-//   app.use(cors(corsOptions));
-
-  app.use(cors({ origin: "*" }));
-
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+    })
+  );
+  
 //api's
 
 app.use("/api/user", userRoute);
