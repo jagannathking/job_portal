@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 // Allow requests only from your frontend domain
 const corsOptions = {
-    origin: "https://job-portal-tfzw.vercel.app/", 
+    origin: "https://job-portal-tfzw.vercel.app", 
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   };
