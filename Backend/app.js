@@ -12,11 +12,6 @@ dotenv.config();
 const app = express();
 
 //middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-
 // // Allow requests only from your frontend domain
 const corsOptions = {
   origin: "https://job-portal-eight-henna.vercel.app",
@@ -25,6 +20,10 @@ const corsOptions = {
   allowedHeaders: "Content-Type,Authorization",
 };
 app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 
 //api's
 
