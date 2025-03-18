@@ -17,15 +17,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-// // Allow requests only from your frontend domain
+// Allow requests only from your frontend domain
 const corsOptions = {
-  origin: "https://job-portal-eight-henna.vercel.app", 
-  credentials: true,
-  methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
+  origin: ["https://job-portal-eight-henna.vercel.app"], // Allow frontend
+  methods: "GET, POST, PUT, DELETE, OPTIONS",
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true, // Allow cookies/auth
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
-app.use(cors(corsOptions));
-
 
 //api's
 
