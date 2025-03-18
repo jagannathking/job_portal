@@ -16,21 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const corsOptions = {
-//   // origin: [process.env.FONTEND_IND_POINT],
-//   origin: process.env.FONTEND_IND_POINT || "*",
-//   credentials: true,
-// };
-
-// console.log("cors error",process.env.FONTEND_IND_POINT)
-// app.use(cors(corsOptions));
-
-app.use(cors());
+const corsOptions = {
+  origin: ["http://localhost:5173"],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 
-
-
- 
 //api's
 
 app.use("/api/user", userRoute);
@@ -38,5 +30,10 @@ app.use("/api/company", companyRoute);
 app.use("/api/job", jobRoute);
 app.use("/api/application", applicationRoute);
 
+
+// Test route
+app.get("/", (req, res) => {
+    res.status(200).json({message:"Healthy"})
+})
 
 export default app
